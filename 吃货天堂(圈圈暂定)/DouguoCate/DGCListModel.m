@@ -1,0 +1,13 @@
+//
+//  DGCListModel.m
+//  DouguoCate
+//
+//  Created by qianfeng on 16/10/15.
+//  Copyright © 2016年 CHJ. All rights reserved.
+//
+
+#import "DGCListModel.h"
+
+@implementation DGCListModel
+
+@end
