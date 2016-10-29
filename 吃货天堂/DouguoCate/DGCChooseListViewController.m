@@ -404,6 +404,38 @@
     }
     
 }
+/**
+ 在cell显示之前增加动画
+ 
+ @param tableView <#tableView description#>
+ @param cell      <#cell description#>
+ @param indexPath <#indexPath description#>
+ */
+-(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSArray *array =  tableView.indexPathsForVisibleRows;
+    NSIndexPath *firstIndexPath = array[0];
+    
+    //设置anchorPoint
+    cell.layer.anchorPoint = CGPointMake(0, 0.5);
+    //为了防止cell视图移动，重新把cell放回原来的位置
+    cell.layer.position = CGPointMake(0, cell.layer.position.y);
+    
+    //设置cell 按照z轴旋转90度，注意是弧度
+    if (firstIndexPath.row < indexPath.row) {
+        cell.layer.transform = CATransform3DMakeRotation(M_PI_2, 0, 0, 1.0);
+    }else{
+        cell.layer.transform = CATransform3DMakeRotation(- M_PI_2, 0, 0, 1.0);
+    }
+    
+    cell.alpha = 0.0;
+    
+    [UIView animateWithDuration:1 animations:^{
+        cell.layer.transform = CATransform3DIdentity;
+        cell.alpha = 1.0;
+    }];
+}
+
 #pragma mark - 跳转界面
 /**
  跳转到介绍界面

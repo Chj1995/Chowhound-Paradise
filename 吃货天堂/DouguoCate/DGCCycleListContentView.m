@@ -215,6 +215,28 @@
     
 }
 
+/**
+ 动画效果
+
+ @param collectionView <#collectionView description#>
+ @param cell           <#cell description#>
+ @param indexPath      <#indexPath description#>
+ */
+- (void)collectionView:(UICollectionView *)collectionView willDisplayCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath{
+    
+    if (indexPath.row % 2 != 0) {
+        cell.transform = CGAffineTransformTranslate(cell.transform, kScreenWidth/2, 0);
+    }else{
+        cell.transform = CGAffineTransformTranslate(cell.transform, -kScreenWidth/2, 0);
+    }
+    cell.alpha = 0.0;
+    [UIView animateWithDuration:0.7 animations:^{
+        cell.transform = CGAffineTransformIdentity;
+        cell.alpha = 1.0;
+    } completion:^(BOOL finished) {
+        
+    }];
+}
 #pragma mark - 回调
 /**
  点击头部按钮的回调
