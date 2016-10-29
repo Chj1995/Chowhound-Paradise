@@ -384,6 +384,7 @@
  */
 -(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    //找到未识别cell
     NSArray *array =  tableView.indexPathsForVisibleRows;
     NSIndexPath *firstIndexPath = array[0];
     

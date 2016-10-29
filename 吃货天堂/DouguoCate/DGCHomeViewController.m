@@ -323,7 +323,12 @@
         adModel.userAvatar = dic[@"u"][@"p"];
         adModel.userVip = dic[@"u"][@"v"];
         
-        [self.adDataSource addObject:adModel];
+        if (adModel.userName.length != 0)
+        {
+            
+            [self.adDataSource addObject:adModel];
+        }
+        
     }
     
     self.homeMainContentView.adArray = self.adDataSource;

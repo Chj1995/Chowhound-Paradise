@@ -1306,9 +1306,9 @@
 		BCE0D7741DA5117100AC4B95 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				BCE0D7BA1DA5199900AC4B95 /* 首页 */,
 				BC71E3171DB7A741000561BC /* 自定义导航栏 */,
 				BCBEF4611DB0F8A700830735 /* 圈圈 */,
-				BCE0D7BA1DA5199900AC4B95 /* 首页 */,
 			);
 			name = Views;
 			sourceTree = "<group>";
